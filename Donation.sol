@@ -40,5 +40,13 @@ contract Donation {
         require(msg.sender == owner, "Only the owner of the contract can withdraw funds");
         _;
     }
+    
+    receive() external payable {
+        fund();
+    }
+
+    fallback() external payable {
+        fund();
+    }
 
 }
